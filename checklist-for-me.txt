@@ -1,0 +1,15 @@
+DSA Self-Study Concept Checklist
+================================
+Use this checklist when manually implementing and mastering any data structure or algorithm:
+
+[ ] 1. Core Problem
+[ ] 2. Brute Force Solution
+[ ] 3. Optimized Solution
+[ ] 4. Complexity Analysis:
+       - Time Complexity
+       - Space Complexity
+[ ] 5. Proof / Reason
+[ ] 6. Edge Cases
+[ ] 7. Design Alternatives (e.g., iterative vs. recursive, and call-stack implications)
+[ ] 8. Real-world Analogies
+[ ] 9. Limitations & Tradeoffs

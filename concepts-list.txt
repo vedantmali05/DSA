@@ -1,0 +1,35 @@
+Deep Java DSA Learning Syllabus
+===============================
+
+1. ARRAYS & SEARCHING/SORTING
+   - Linear & Binary Search
+   - Bubble, Insertion, Selection Sort
+   - Merge Sort & Quick Sort
+   - Two Pointers & Sliding Window techniques
+
+2. LINKED LISTS
+   - Singly Linked List (internals & manual implementation)
+   - Doubly & Circular Linked Lists
+   - Floyd's Cycle Detection, Reversal, & Manipulation
+
+3. STACKS & QUEUES
+   - Array & Linked List-based Stacks
+   - Queue & Circular Queue implementations
+   - Deque & Priority Queue concepts
+
+4. TREES & HEAPS
+   - Binary Trees & Traversals (DFS, BFS)
+   - Binary Search Trees (BST) (Insertion, Deletion, Search)
+   - Balanced Trees (AVL / Red-Black Tree concepts)
+   - Binary Heaps & Heap Sort
+
+5. GRAPHS
+   - Representations (Adjacency Matrix, Adjacency List)
+   - Traversals (BFS, DFS)
+   - Shortest Path Algorithms (Dijkstra, Bellman-Ford)
+   - Minimum Spanning Trees (Prim's, Kruskal's)
+
+6. RECURSION & DYNAMIC PROGRAMMING
+   - Backtracking fundamentals
+   - Memoization vs. Tabulation
+   - Classic DP problems (Knapsack, LCS, LIS)
