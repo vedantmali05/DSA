@@ -15,3 +15,5 @@ Behavior Guidelines for Antigravity AI:
    - Iterative vs recursive versions (if relevant)
    - Real-world intuition
    - Limitations/tradeoffs
+
+7. Formatting Constraint: Do NOT wrap time/space complexity representations (like O(N), O(1)) in dollar signs ($) or LaTeX math symbols. Always write them as raw plain text (e.g. O(N), O(1)).
