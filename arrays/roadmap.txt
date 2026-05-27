@@ -2,51 +2,51 @@ Arrays Coding Checklist
 ======================
 
 [ ] 1. Basic Operations (Iterative & In-Place)
-    [ ] Single pass traversal (forward and backward) -> basic_traversal.java
-    [ ] Insert element at index (with element shifting) -> basic_insert.java
-    [ ] Delete element at index (with element shifting and compaction) -> basic_delete.java
-    [ ] Find minimum and maximum elements in a single pass -> basic_min_max.java
-    [ ] In-place array reversal (two pointers) -> basic_reverse.java
-    [ ] Left rotate by 1 step (shift left, wrap first element) -> basic_rotate_one.java
-    [ ] Right rotate by K steps (using block reversal algorithm) -> basic_rotate_k.java
-    [ ] Remove duplicates from sorted array (in-place compaction) -> basic_remove_duplicates.java
-    [ ] Move all zeros to end of array (in-place, preserving order) -> basic_move_zeros.java
+    [ ] Single pass traversal (forward and backward) -> basic_01_traversal.java
+    [ ] Insert element at index (with element shifting) -> basic_02_insert.java
+    [ ] Delete element at index (with element shifting and compaction) -> basic_03_delete.java
+    [ ] Find minimum and maximum elements in a single pass -> basic_04_min_max.java
+    [ ] In-place array reversal (two pointers) -> basic_05_reverse.java
+    [ ] Left rotate by 1 step (shift left, wrap first element) -> basic_06_rotate_one.java
+    [ ] Right rotate by K steps (using block reversal algorithm) -> basic_07_rotate_k.java
+    [ ] Remove duplicates from sorted array (in-place compaction) -> basic_08_remove_duplicates.java
+    [ ] Move all zeros to end of array (in-place, preserving order) -> basic_09_move_zeros.java
 
 [ ] 2. Searching Algorithms
-    [ ] Linear search (standard search and first/last match tracking) -> search_linear.java
-    [ ] Binary search (iterative implementation on sorted array) -> search_binary_iterative.java
-    [ ] Binary search (recursive implementation) -> search_binary_recursive.java
-    [ ] First and last occurrence index of a duplicate element -> search_first_last_occurrence.java
-    [ ] Search in a rotated sorted array -> search_rotated_sorted.java
+    [ ] Linear search (standard search and first/last match tracking) -> search_01_linear.java
+    [ ] Binary search (iterative implementation on sorted array) -> search_02_binary_iterative.java
+    [ ] Binary search (recursive implementation) -> search_03_binary_recursive.java
+    [ ] First and last occurrence index of a duplicate element -> search_04_first_last_occurrence.java
+    [ ] Search in a rotated sorted array -> search_05_rotated_sorted.java
 
 [ ] 3. Sorting & Merging
-    [ ] Bubble sort (manual pass-by-pass swaps) -> sort_bubble.java
-    [ ] Selection sort (manual minimum tracking and swap) -> sort_selection.java
-    [ ] Insertion sort (shifting elements to insert in sorted prefix) -> sort_insertion.java
-    [ ] Merge two sorted arrays (using auxiliary array) -> sort_merge_auxiliary.java
-    [ ] Merge two sorted arrays (in-place with shift/insertion) -> sort_merge_inplace.java
-    [ ] Lomuto partition scheme (single pointer progression) -> partition_lomuto.java
-    [ ] Hoare partition scheme (two-pointer meeting partition) -> partition_hoare.java
-    [ ] Dutch National Flag partition (3-way swap partitioning) -> partition_dutch_flag.java
+    [ ] Bubble sort (manual pass-by-pass swaps) -> sort_01_bubble.java
+    [ ] Selection sort (manual minimum tracking and swap) -> sort_02_selection.java
+    [ ] Insertion sort (shifting elements to insert in sorted prefix) -> sort_03_insertion.java
+    [ ] Merge two sorted arrays (using auxiliary array) -> sort_04_merge_auxiliary.java
+    [ ] Merge two sorted arrays (in-place with shift/insertion) -> sort_05_merge_inplace.java
+    [ ] Lomuto partition scheme (single pointer progression) -> partition_01_lomuto.java
+    [ ] Hoare partition scheme (two-pointer meeting partition) -> partition_02_hoare.java
+    [ ] Dutch National Flag partition (3-way swap partitioning) -> partition_03_dutch_flag.java
 
 [ ] 4. Pointer & Sliding Window Patterns
-    [ ] Frequency count array (using element value as index) -> pattern_frequency_count.java
-    [ ] Prefix sum array (constant-time range sum queries) -> pattern_prefix_sum.java
-    [ ] Suffix sum array -> pattern_suffix_sum.java
-    [ ] Two pointers: Target sum pair search in sorted array -> pattern_two_pointers_sum.java
-    [ ] Sliding window (Fixed size): Maximum sum subarray of size K -> pattern_window_fixed.java
-    [ ] Sliding window (Variable size): Smallest subarray with sum >= Target -> pattern_window_variable.java
-    [ ] Kadane's algorithm (Maximum sum contiguous subarray) -> pattern_kadane.java
+    [ ] Frequency count array (using element value as index) -> pattern_01_frequency_count.java
+    [ ] Prefix sum array (constant-time range sum queries) -> pattern_02_prefix_sum.java
+    [ ] Suffix sum array -> pattern_03_suffix_sum.java
+    [ ] Two pointers: Target sum pair search in sorted array -> pattern_04_two_pointers_sum.java
+    [ ] Sliding window (Fixed size): Maximum sum subarray of size K -> pattern_05_window_fixed.java
+    [ ] Sliding window (Variable size): Smallest subarray with sum >= Target -> pattern_06_window_variable.java
+    [ ] Kadane's algorithm (Maximum sum contiguous subarray) -> pattern_07_kadane.java
 
 [ ] 5. Matrix Operations (2D Arrays)
-    [ ] 2D Matrix row-by-row and column-by-column traversal -> matrix_traversal.java
-    [ ] Transpose of a square matrix (in-place swap across diagonal) -> matrix_transpose.java
-    [ ] Rotate 2D matrix 90 degrees clockwise (in-place transpose + reverse) -> matrix_rotate_90.java
-    [ ] Spiral traversal and printing of 2D matrix -> matrix_spiral.java
-    [ ] Binary search on a sorted 2D grid -> matrix_binary_search.java
+    [ ] 2D Matrix row-by-row and column-by-column traversal -> matrix_01_traversal.java
+    [ ] Transpose of a square matrix (in-place swap across diagonal) -> matrix_02_transpose.java
+    [ ] Rotate 2D matrix 90 degrees clockwise (in-place transpose + reverse) -> matrix_03_rotate_90.java
+    [ ] Spiral traversal and printing of 2D matrix -> matrix_04_spiral.java
+    [ ] Binary search on a sorted 2D grid -> matrix_05_binary_search.java
 
 [ ] 6. Advanced Modification & Query Patterns
-    [ ] Product of array except self (prefix and suffix product compilation) -> adv_product_except_self.java
-    [ ] Difference array (constant-time range additions on static arrays) -> adv_difference_array.java
-    [ ] Boyer-Moore majority voting algorithm -> adv_majority_element.java
-    [ ] Next lexicographical permutation algorithm -> adv_next_permutation.java
+    [ ] Product of array except self (prefix and suffix product compilation) -> adv_01_product_except_self.java
+    [ ] Difference array (constant-time range additions on static arrays) -> adv_02_difference_array.java
+    [ ] Boyer-Moore majority voting algorithm -> adv_03_majority_element.java
+    [ ] Next lexicographical permutation algorithm -> adv_04_next_permutation.java
