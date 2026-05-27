@@ -3,10 +3,10 @@
 A systematic computer science laboratory and notebook for deep-diving into Data Structures and Algorithms in Java from first principles.
 
 ## Workspace Structure
-* `arrays/` - Linear structures, searching, sorting, and array manipulation algorithms.
-* `checklist-for-me.txt` - Universal evaluation criteria applied to every algorithm studied.
-* `concepts-list.txt` - Structured study roadmap and syllabus of core CS concepts.
-* `rules-for-ai.txt` - Strict guidelines governing AI pairing behavior.
+* `arrays/` - Linear structures, searching, sorting, and array manipulation algorithms (contains `_roadmap.txt` for checking off implementations).
+* `_checklist-for-me.txt` - Universal evaluation criteria applied to every algorithm studied.
+* `_concepts-list.txt` - Structured study roadmap and syllabus of core CS concepts.
+* `_rules-for-ai.txt` - Strict guidelines governing AI pairing behavior.
 
 ## Conceptual Evaluation Framework
 Each manually implemented data structure or algorithm is studied by evaluating:
