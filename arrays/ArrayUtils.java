@@ -1,9 +1,40 @@
 package arrays;
 
 public class ArrayUtils {
+    public static void arrayTraversal(int[] arr) {
+        arrayTraversal(arr, 0, arr == null ? -1 : arr.length - 1, "");
+    }
+
     public static void arrayTraversal(int[] arr, String customString) {
-        System.err.print(customString == "" ? "Printing the array: " : customString);
-        for (int i = 0; i < arr.length; i++) {
+        arrayTraversal(arr, 0, arr == null ? -1 : arr.length - 1, customString);
+    }
+
+    public static void arrayTraversal(int[] arr, int start, int end) {
+        arrayTraversal(arr, start, end, "");
+    }
+
+    public static void arrayTraversal(int[] arr, int start, int end, String customString) {
+        if (arr == null) {
+            System.err.println("Array is null.");
+            return;
+        }
+        
+        if (arr.length == 0) {
+            if (start != 0 || end != -1) {
+                System.err.println("Invalid bounds for array traversal.");
+                return;
+            }
+        } else {
+            if (start < 0 || end >= arr.length || start > end) {
+                System.err.println("Invalid bounds for array traversal.");
+                return;
+            }
+        }
+        
+        String header = (customString == null || customString.isEmpty()) ? "Printing the array: " : customString;
+        System.err.print(header);
+        
+        for (int i = start; i <= end; i++) {
             System.err.print(arr[i] + " ");
         }
         System.err.println();
