@@ -73,6 +73,7 @@ class Main {
  * person at index 2 cancels and leaves, everyone standing behind them must step
  * forward one step to close the gap, leaving an empty space at the very tail of
  * the line.
+ * - Technical Analogy: Compacting items in a UI layout (like closing a tab in a browser tab bar). To remove the gap, all subsequent tab components are shifted left to align contiguously.
  * - Limitations & Tradeoffs: Element compaction has a linear O(N) overhead. If
  * maintaining index order is not a requirement, deletion can be optimized to
  * O(1) by swapping the target element with the last element and decrementing

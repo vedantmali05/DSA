@@ -16,12 +16,12 @@ Arrays Coding Checklist
     [ ] Linear search (standard search and first/last match tracking) -> 02_01_search_linear.java
     [ ] Binary search (iterative implementation on sorted array) -> 02_02_search_binary_iterative.java
     [ ] Binary search (recursive implementation) -> 02_03_search_binary_recursive.java
-    [ ] First and last occurrence index of a duplicate element -> 02_04_search_first_last_occurrence.java
-    [ ] Search in a rotated sorted array -> 02_05_search_rotated_sorted.java
+    [x] First and last occurrence index of a duplicate element -> 02_04_search_first_last_occurrence.java
+    [x] Search in a rotated sorted array -> 02_05_search_rotated_sorted.java
 
 [ ] 3. Sorting & Merging
-    [ ] Bubble sort (manual pass-by-pass swaps) -> 03_01_sort_bubble.java
-    [ ] Selection sort (manual minimum tracking and swap) -> 03_02_sort_selection.java
+    [x] Bubble sort (manual pass-by-pass swaps) -> 03_01_sort_bubble.java
+    [x] Selection sort (manual minimum tracking and swap) -> 03_02_sort_selection.java
     [ ] Insertion sort (shifting elements to insert in sorted prefix) -> 03_03_sort_insertion.java
     [ ] Merge two sorted arrays (using auxiliary array) -> 03_04_sort_merge_auxiliary.java
     [ ] Merge two sorted arrays (in-place with shift/insertion) -> 03_05_sort_merge_inplace.java

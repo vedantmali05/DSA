@@ -1,0 +1,45 @@
+================================================================================
+                           DSA STUDY REMEMBER DIARY
+================================================================================
+
+1. Safe Middle Index Calculation
+--------------------------------------------------------------------------------
+Always calculate the middle index of a range [left, right] using:
+
+    int mid = left + (right - left) / 2;
+
+DO NOT USE:
+    int mid = (left + right) / 2;
+
+Why to use it:
+- Prevent Integer Overflow: In Java, the maximum value of a 32-bit signed integer 
+  is 2,147,483,647 (Integer.MAX_VALUE). If `left` and `right` are large (e.g., 
+  both around 1.5 billion), their sum `left + right` will overflow to a negative 
+  integer. Dividing that negative integer by 2 results in a negative index, 
+  throwing an ArrayIndexOutOfBoundsException.
+- Algebraic Equivalence: Mathematically, `left + (right - left) / 2` simplifies 
+  to `(2 * left + right - left) / 2 = (left + right) / 2`, but it does so 
+  without ever computing a value larger than `right`.
+
+Where to use it:
+This formula should be used in any algorithm that partitions a range into halves 
+or sub-segments:
+- Binary Search (Iterative & Recursive)
+- Finding first/last occurrences or search boundaries
+- Merge Sort (finding the split point: `int mid = left + (right - left) / 2`)
+- Quick Sort (when choosing pivot indices or segmenting arrays)
+- Binary Search on Answer space (e.g., Allocating Books, Painter's Partition)
+- Segment Trees and Fenwick Trees range splitting
+- Ternary Search (dividing the space into three equal segments)
+- Divide and Conquer algorithms generally
+
+2. Rotated Sorted Array Bounds Check
+--------------------------------------------------------------------------------
+When performing binary search on a rotated sorted array:
+- First, check which half is sorted:
+  * Left half is sorted if `arr[left] <= arr[mid]`.
+  * Right half is sorted if `arr[left] > arr[mid]`.
+- Second, check if the target lies within the sorted half's boundaries:
+  * If the left half is sorted, check `target >= arr[left] && target < arr[mid]`.
+  * If the right half is sorted, check `target > arr[mid] && target <= arr[right]`.
+- CRITICAL TRAP: Always make the outer boundaries INCLUSIVE (`>= arr[left]` and `<= arr[right]`) and the inner boundaries EXCLUSIVE (`< arr[mid]` and `> arr[mid]`). If you use exclusive checks for the outer boundaries (e.g. `< arr[right]`), the search will fail when the target is located exactly at the boundary indices.

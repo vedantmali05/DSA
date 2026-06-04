@@ -62,6 +62,7 @@ class Main {
  * - Real-world Analogy: Imagine an assembly line of labeled boxes. As the boxes pass by, a worker marks down each new label they see.
  *   - Brute Force (Extra Space): The worker keeps a second row of boxes on a separate table, copying only the boxes with new labels. The second table has empty space at the end.
  *   - In-Place (Two Pointers): The worker operates directly on the main assembly line. The first pointer ("unique pointer") marks the end of the unique sorted sequence. As boxes roll past, if a box has a different label from the unique pointer's box, the worker slides it forward to sit right next to the unique pointer's box. The boxes at the end of the line remain unchanged ("dirty elements").
+ * - Technical Analogy: De-duplicating incoming messages in a live chat application feed. If consecutive messages can be duplicates due to transmission retries, the feed filter compares the current incoming message sequence ID with the last emitted message ID, storing only unique values in the active view index.
  * - Limitations & Tradeoffs: 
  *   - The in-place two-pointer approach is highly space-efficient (O(1) auxiliary space) and very fast (O(N) time complexity) because it modifies the array in a single traversal pass.
  *   - However, because arrays have a fixed size in Java, the in-place modification leaves trailing duplicate elements (referred to as "dirty ending elements") at the tail of the array. The caller must keep track of the unique size to avoid processing this garbage data.

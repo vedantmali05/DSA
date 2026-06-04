@@ -38,6 +38,7 @@ class Main {
  * tallest and shortest. The scout scans from left to right, comparing each
  * player's height to the current records in their notebook and updating the
  * entries.
+ * - Technical Analogy: Determining Y-axis scaling bounds in an interactive charting application. To plot a time-series stock price graph, the application scans the price array in a single pass to determine the minimum and maximum boundaries for drawing grid lines.
  * - Limitations & Tradeoffs: On an unsorted array, we must search all elements,
  * forcing O(N) time. If the array is pre-sorted, finding min/max simplifies to
  * O(1) by reading `arr[0]` and `arr[len-1]`. For highly dynamic datasets with

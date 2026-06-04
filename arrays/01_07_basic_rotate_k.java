@@ -140,6 +140,7 @@ class Main {
  * - Real-world Analogy: Reversing book sections on a shelf. To rotate a shelf
  * of books left by K positions, you can reverse the first K books, reverse
  * the remaining N-K books, and then reverse the entire shelf.
+ * - Technical Analogy: Column cyclic scrolling in horizontal UI grid views or spreadsheet components. When a user scrolls past K columns, the renderer rotates the column data indices by K positions using block reversal to keep memory moves minimal and in-place.
  * - Limitations & Tradeoffs: The block reversal algorithm is highly optimized
  * because it performs exactly 3 array reversal passes (O(N) operations total)
  * and requires only O(1) auxiliary space. Compared to shifting elements

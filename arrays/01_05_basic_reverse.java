@@ -64,6 +64,7 @@ class Main {
  * - Real-world Analogy: Reversing the order of cars in a train. Two workers
  * start at the front and back, swap the first and last cars, and walk towards
  * each other, swapping cars step by step until they meet in the middle.
+ * - Technical Analogy: Horizontal image flipping. An image processing application flips an image horizontally by treating each pixel row as an array and swapping the left pixels with the right pixels in-place using two pointers.
  * - Limitations & Tradeoffs: This in-place two-pointer algorithm is highly
  * efficient (O(N) time and O(1) space), but it is destructive as it
  * permanently alters the original array. If preserving the original array is

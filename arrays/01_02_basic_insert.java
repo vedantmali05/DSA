@@ -52,6 +52,7 @@ class Main {
  * space in the middle, you must physically push all subsequent books one slot
  * to the right. If there is no space left, you either drop the last book (lossy
  * insert) or get a larger shelf (lossless dynamic reallocation).
+ * - Technical Analogy: Adding an item into a list widget in a mobile app UI layout. To insert a new card at a specific index, all cards below it must be shifted down to make room and keep the order consistent.
  * - Limitations & Tradeoffs: Inserting into static arrays is computationally
  * heavy (O(N) time) due to memory shifts. If insertions are frequent, dynamic
  * chains (like Linked Lists) are superior, exchanging higher memory overhead

@@ -52,6 +52,7 @@ class Main {
  * 0)
  * steps out of line and moves to the very back, while everyone else shifts
  * one step forward to fill the gap.
+ * - Technical Analogy: Round-robin event loop or task scheduler. The executor pulls a task from index 0, runs it, and then shifts all remaining tasks forward in the queue, appending the executed task to the tail.
  * - Limitations & Tradeoffs: The in-place shifting is simple and
  * space-efficient
  * (O(1) auxiliary space), but it requires O(N) shifts. Doing this sequentially

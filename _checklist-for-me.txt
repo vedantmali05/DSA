@@ -1,15 +1,26 @@
-DSA Self-Study Concept Checklist
-================================
-Use this checklist when manually implementing and mastering any data structure or algorithm:
+DSA Self-Study Concept Checklist (Workflow Edition)
+===================================================
+Use this checklist for every new DSA topic to ensure thorough mastery:
 
-[ ] 1. Core Problem
-[ ] 2. Brute Force Solution
-[ ] 3. Optimized Solution
-[ ] 4. Complexity Analysis:
-       - Time Complexity
-       - Space Complexity
-[ ] 5. Proof / Reason
-[ ] 6. Edge Cases
-[ ] 7. Design Alternatives (e.g., iterative vs. recursive, and call-stack implications)
-[ ] 8. Real-world Analogies
-[ ] 9. Limitations & Tradeoffs
+[ ] 1. Boilerplate Generation:
+       - Request boilerplate with stubs for both brute-force/iterative and optimized/recursive approaches.
+       - Verify test inputs are initialized and printed cleanly.
+[ ] 2. Logic Implementation:
+       - Write the core logic yourself without looking at immediate solutions.
+       - Use safe indices (e.g., `left + (right - left) / 2` for middle points to avoid 32-bit signed overflow).
+[ ] 3. Code Verification & Dry Runs:
+       - Run dry runs on boundary values (e.g., target at start, end, or missing completely).
+       - Compile and execute using `java PathToFile.java` directly to check correctness.
+[ ] 4. Edge Case Handling:
+       - Add validation for `null` references, empty structures, and out-of-bounds inputs.
+[ ] 5. Complexity Documentation:
+       - Document Time & Space complexity at the very end of each method in raw plain text.
+       - Identify best-case vs worst-case bounds.
+[ ] 6. Conceptual Documentation (Design Notes):
+       - Place multi-line comment block at the end of the file.
+       - Add a Real-world Analogy (physical, non-technical logic intuition).
+       - Add an App/Algorithmic Technical Analogy (UI layouts, text editors, stream pipelines).
+       - Document Limitations & Tradeoffs (memory vs time, sorted requirements).
+[ ] 7. Roadmap & Diary Updates:
+       - Mark progress off in `arrays/_roadmap.txt`.
+       - Record core traps or fundamental rules in `remember_diary.txt`.
