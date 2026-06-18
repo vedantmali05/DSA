@@ -1,0 +1,169 @@
+================================================================================
+ARRAYS CONCEPTUAL ASSESSMENT
+================================================================================
+
+Range of topics:
+* Basic Array Manipulations (01_01 to 01_09)
+* Searching Algorithms (02_01 to 02_05)
+* Basic Sorting (03_01 to 03_02)
+
+--------------------------------------------------------------------------------
+QUESTIONS
+--------------------------------------------------------------------------------
+
+Q1. Why does the standard middle index formula `(left + right) / 2` cause an overflow in Java when working with large arrays, and how does `left + (right - left) / 2` algebraically resolve this without exceeding the array boundary values?
+Ans:
+- If the right value is the Integer.MAX_VALUE boundary and adding left value to it may cause overflow the capacity of integrer data type in java.
+- `left + (right - left) / 2` first substract the left from the max boundary right and divides the obtained value by 2.
+- The result is further added with the left which becomes the middle value of left and right.
+
+1.1: Correct! Adding two large integers can exceed `Integer.MAX_VALUE` (2,147,483,647), causing the value to wrap around to a negative number in Java. By doing `left + (right - left) / 2`, we perform subtraction first (which is safe because both are positive and `right >= left`), divide the difference, and add it back to `left`, ensuring we never exceed the bounds.
+
+--------------------------------------------------------------------------------
+
+Q2. When searching in a rotated sorted array, explain why the presence of duplicate elements (e.g., searching for `0` in `{2, 2, 2, 2, 0, 2}`) degrades the time complexity from O(log N) to O(N). What comparison fails to guide the binary search decision?
+Ans:
+- In this case, the algorithm cannot guarantee which half is the sorted half, and requires N comparisons afterall.
+
+2.1: Exactly. Usually, we compare `arr[mid]` with `arr[left]` or `arr[right]` to identify which half of the array is sorted. However, when `arr[left] == arr[mid] == arr[right]`, this comparison fails to tell us which side is sorted, forcing us to shrink the boundary by 1 step at a time (e.g., `left++` or `right--`), degrading the search to linear O(N) time.
+
+--------------------------------------------------------------------------------
+
+Q3. Is Selection Sort stable or unstable? Provide a brief step-by-step trace of a small example array with duplicate elements (e.g., `{4, 4, 1}`) that demonstrates how its relative duplicate order is violated.
+Ans:
+- Selection sort is unstable, because when the elements are duplicate, their relative order is changed.
+- But, I don't understand what does a "relative" order mean?
+
+3.1: Let's address your question first! **"Relative order"** means the order of duplicate elements *in relation to each other* as they originally appeared in the input. If you have two duplicates `4` (let's label them `4_a` and `4_b` where `4_a` is initially before `4_b`), a **stable** sort guarantees that `4_a` will still be before `4_b` after sorting. An **unstable** sort might swap them, so `4_b` ends up before `4_a`.
+
+Here is the step-by-step trace for `{4_a, 4_b, 1}`:
+- **Pass 1:** Selection sort scans the array for the minimum element, which is `1` at index 2. It swaps `1` with the element at the first position (index 0), which is `4_a`.
+- **Result after Pass 1:** The array becomes `{1, 4_b, 4_a}`.
+Notice that the relative order of the duplicates has changed: `4_b` now appears *before* `4_a`! This demonstrates why Selection Sort is unstable.
+
+🟢 3.2: Can you think of another simple sorting algorithm that *is* stable? How does it preserve the relative order of duplicates?
+Ans:
+- Bubble sort just swaps the 2 consecutive, only if the first one is larger than the second.
+- Thus, no 2 equal numbers (duplicates) get swapped, and thus their order doesn't change.
+
+--------------------------------------------------------------------------------
+
+Q4. Explain the three-reversal algorithm to rotate an array of size N to the right by K places. Why is it preferred over auxiliary array approaches in production?
+Ans: Reverse the elements in an array from 0 to k-1, then reverse the K to arr.lenght - 1 array elements, then reverse the entire array. All three reversals shall be inplace. What does "auxiliary" mean?
+
+4.1: Let's address your question first! **"Auxiliary"** means *extra* or *supplementary*. In computing, "auxiliary space" refers to the temporary memory allocated by an algorithm *excluding* the input data itself. 
+- An **auxiliary array approach** creates a brand-new array of size N to copy elements into (requiring O(N) auxiliary space).
+- The **three-reversal approach** does all swaps in-place inside the original array, requiring only O(1) auxiliary space (just a single temporary variable for swapping). In production, minimizing memory allocation prevents memory overhead and garbage collection pauses.
+
+Also, a quick note: the reversal steps you described (`0 to k-1`, then `k to arr.length-1`, then entire array) actually perform a **left** rotation. For a **right** rotation, the steps are:
+1. Reverse the last K elements (`arr.length - k` to `arr.length - 1`).
+2. Reverse the first `arr.length - k` elements (`0` to `arr.length - k - 1`).
+3. Reverse the entire array (`0` to `arr.length - 1`).
+
+🟢 4.2: If we want to rotate `{1, 2, 3, 4, 5}` to the right by K = 2 using the block reversal method, what will the array look like after the first two partial reversals (before the final full reversal)?
+Ans: {2, 1, 5, 4, 3}
+
+--------------------------------------------------------------------------------
+
+Q5. In the two-pointer technique for removing duplicates from a sorted array in-place, why does the write pointer only write when `arr[read] != arr[write - 1]`? What logical bug occurs if we check `arr[read] != arr[read - 1]` instead?
+Ans:
+- The read element is started from 1, and write started from 0th index.
+- So, read starts reading, and write follows it.
+- The reading position item and writing position items don't match when they are not equal (unique, not duplicate).
+- Thus, we increment read pointer first, and thus now read == write
+- Then, we read & write on the same position, and items remain unchanged.
+- But, when arr[read] == arr[write], duplicate is found, so we don't increment the write pointer, only read is incremented.
+- Hence, the read pointer keeps incrementing until all the consecutive duplicates are crossed.
+- Once, the read pointer reaches the next unique item,
+    - write pointer is incremented: because we don't want to update the first occurrence (first one is not duplicate, at least one occurrence should be kept in the array)
+    - The arr[read] is written at the arr[write]
+    - Hence, all the duplicate occurrences are replaced with upcoming unique items in the array.
+- If arr[read] != arr[read - 1] is checked and write is performed,
+    - only the last occurrence of the consecutive duplicate will be replaced with next unique elements
+
+5.1: Excellent! Comparing `arr[read]` with the already-written unique element `arr[write-1]` ensures we correctly screen duplicates against the unique prefix we are building. If we checked `arr[read] != arr[read-1]`, we would only compare elements in the original unswept array, which causes logical errors once we start overwriting elements.
+
+--------------------------------------------------------------------------------
+
+Q6. When moving all zeroes to the end of an array while maintaining the relative order of non-zero elements, why does a partitioning approach (like QuickSort's swap-based partition) fail to preserve order, and how does the two-pointer compaction method solve this?
+Ans:
+- Quick sort is still pending, will come back when learnt.
+
+6.1: No problem, you can come back to this once you learn QuickSort! Just to give you the concept: 
+QuickSort's partitioning swaps elements across long distances around a pivot, which scrambles the original relative order of the non-pivot elements. 
+The two-pointer compaction method avoids this by reading sequentially left-to-right and writing non-zero elements one by one in their exact original order.
+
+--------------------------------------------------------------------------------
+
+Q7. When finding the single missing number in an array containing elements from `1` to `N`, what is the technical risk of using the mathematical sum formula `N * (N + 1) / 2` in Java, and how does the Bitwise XOR method bypass this?
+Ans:
+- Finding missing number is still not prepared. I'll come back.
+
+7.1: Noted! We will skip this for now and revisit it when you study Bitwise manipulation.
+
+--------------------------------------------------------------------------------
+
+Q8. When reversing an array recursively, what is the auxiliary space complexity in terms of call stack frames? Compare this with the space complexity of the iterative two-pointer array reversal.
+Ans:
+- When reversing an array recursively, the auxiliary space complexity will be O(n)
+- This is because, every time the reversal function calls it self, it allocated memory for its params.
+- Thus, if the array is of size N, N/2 comparisons will happen, and a new copy of the array will be pushed to call stack N/2 times
+- Ignoring the dominant terms, the space complexity becomes O(n)
+- In the inplace array reversal, the array items are compared and swapped on the existing array, without allocating any extra space or creating a new array.
+
+8.1: Great answer! Let's clarify one technical detail: In Java, objects (including arrays) are passed by **reference**. The recursion does not copy the array itself; it just passes the reference. 
+However, each recursive call pushes a new **stack frame** (activation record) containing the method parameters (`i`, `j`), local variables, and return address. Since there are N/2 calls active at the deepest point of recursion, this uses O(N) auxiliary stack space.
+
+🟢 8.2: In contrast, why does the iterative two-pointer reversal only require O(1) auxiliary space?
+Ans:
+
+--------------------------------------------------------------------------------
+
+Q9. In binary search for the first occurrence of a duplicate target element, why do we continue updating the search space boundaries (specifically setting `right = mid - 1`) even after finding `arr[mid] == target`?
+Ans:
+- Even after finding the target item at the mid, it is possible that it's duplicate be present before the arr[mid] occurrence.
+- When we push our search towards right, we try to find the target's occurrence even before the middle one (closer to the first array index)
+- The matched index is stored in a result variable, and only returned when the search space is narrowed to 0.
+
+9.1: Spot on! (Just a quick terminology correction: when we set `right = mid - 1`, we are actually shifting our search towards the **left** to find earlier occurrences closer to the beginning of the array).
+
+--------------------------------------------------------------------------------
+
+Q10. In the optimized Bubble Sort, why is the best-case time complexity O(N), and what condition triggers the early exit? Explain why the unoptimized version fails to achieve this.
+Ans:
+- In optimized Bubble Sort, the array is traversed at least once, before checking the condition of being sorted before early exit.
+- Thus, in best case the time complexity is O(n) and it's O(n^2) in avg or best case.
+- For the early exit, we maintain a flag, (called isSwapped) and mark it as true, even if one swap happens.
+- After the end of one pass, we check if the flag is still false
+- If still false, means nothing swapped, hence the array is sorted, and we can break the loop or return the updated array.
+- The unoptimized Bubble sort fails to do this early exit because, it doesn't make any explicit checks at the end of each pass, continue onto the next pass until the entire array is repeatedly checked for the order.
+
+10.1: Perfect! The `isSwapped` flag tracks if any elements changed position during a pass. If `isSwapped` remains false after a full pass, the array is already sorted, so we can exit early. The unoptimized version lacks this flag and will blindly run all passes.
+
+--------------------------------------------------------------------------------
+
+Q11. If you are given an unsorted array of size N and need to perform a single search query, is it better to sort the array first and perform a Binary Search, or simply perform a Linear Search? Explain your answer using time complexities.
+Ans:
+- The time complexities of the most commonly used sorting algorithms are around O(n^2), like Bubble Sort or Selection, to O(n logn) like Merge Sort
+- The time complexity of Binary search is O(log n)
+- In case of an unsorted array, if we sorted it first and then applied binary search, the complexity will be nearly O(n logn) + O(logn)
+- If we applied linear search, it will be only O(n)
+- So, clearly, the linear search if the faster approach here.
+- But, if the dataset is very large and searching is done very frequently, then it is recommended to use advanced methods like hashing, indexing, etc.
+- (I will study these advanced method further in the course.)
+
+11.1: Excellent work! For a single search, sorting first adds an O(N log N) overhead, making Linear Search (O(N)) superior. Sorting first is only beneficial if we intend to perform many queries so the sorting cost is amortized.
+
+--------------------------------------------------------------------------------
+
+Q12. If you are writing software for an embedded system with flash memory where memory write operations (swaps) degrade the hardware lifespan, which sorting algorithm is better: Bubble Sort or Selection Sort? Why?
+Ans:
+- Bubble sort swaps the consecutive items, bubbling a largest item to the end.
+- Then this swapping is repeated again from start to end - number of passes.
+- In Selection sort, all the swaps happen in only one go
+- So, clearly number of swaps in Bubble Sort is more than the Selection Sort.
+- Prefer Selection sort in case of saving hardware
+- I hope this explanation is enough, but the interviewer may not like it. I am sleepy.
+
+12.1: First off: **Get some rest!** Second: **Your explanation is 100% correct and exactly what an interviewer wants to hear.**
+Selection Sort performs at most O(N) swaps (specifically, at most 1 swap per outer loop pass), whereas Bubble Sort can perform up to O(N^2) swaps. On EEPROM or flash memory where write wear is a major concern, minimizing swaps is critical, making Selection Sort the clear winner.

@@ -106,14 +106,16 @@ Completed Files & Features:
 * arrays/02_05_search_rotated_sorted.java: Search in a rotated sorted array.
 * arrays/03_01_sort_bubble.java: Bubble sort (manual pass-by-pass swaps).
 * arrays/03_02_sort_selection.java: Selection sort (manual minimum tracking and swap).
+* arrays/03_03_sort_insertion.java: Insertion sort (shifting elements to insert in sorted prefix).
+* arrays/03_04_sort_merge_auxiliary.java: Merge sort using auxiliary array.
 
 --------------------------------------------------------------------------------
 7. ACTIVE WORKSPACE & NEXT STEPS
 --------------------------------------------------------------------------------
-- Current File: `arrays/03_03_sort_insertion.java`
-- Goal: Implement insertion sort by shifting elements to insert in a sorted prefix in O(N^2) time.
-- Current Logic State: The user has finalized selection sort and is beginning insertion sort.
-- Next File: `arrays/03_04_sort_merge_auxiliary.java`
+- Current File: `arrays/03_05_sort_merge_inplace.java`
+- Goal: Implement in-place merge sort using shift/insertion operations.
+- Current Logic State: The user has finalized merge sort with auxiliary space and is beginning in-place merge sort.
+- Next File: `arrays/03_06_sort_quick.java`
 
 --------------------------------------------------------------------------------
 8. TAKE LEARNER'S ASSESSMENT WHEN REQUESTED
@@ -121,7 +123,7 @@ Completed Files & Features:
 - Trigger: Initiate the assessment process only when explicitly requested by the learner.
 - Scope Selection: First, ask the learner to define the range of topics, concepts, or files to be tested.
 - Question Count: Each assessment must contain at least 10 to 15 questions unless explicitly specified otherwise by the learner.
-- File Creation: Create a dedicated assessment file in the project root named using the convention `_assessment_<topic>.txt` (e.g., `_assessment_arrays.txt`). Maintain maximum readability using a structured plaintext layout.
+- File Creation: Create a dedicated assessment file inside the specific topic directory (e.g., `arrays/` directory) named using the convention `_assessment_<topic>.txt` (e.g., `arrays/_assessment_arrays.txt`). Maintain maximum readability using a structured plaintext layout.
 - Interactive Assessment Flow: Treat the assessment as an interactive, guided conversation rather than a static test. Use the following format inside the assessment file:
   * Revise: List the specific sub-topics/files the learner should review before starting.
   * Q#. <A rigorous question testing deep conceptual understanding or logic.>
@@ -132,3 +134,5 @@ Completed Files & Features:
   * 🟢 #.#: <Highlight the most recent, unanswered follow-up question with a "live" emoji 🟢.>
 - Status Tracking: Clear the live emoji (🟢) once the learner has answered the corresponding follow-up question.
 - Feedback Loop: After completing the assessment, analyze the learner's answers, mistakes, and conversational patterns to update their learning path and the guidelines file if needed.
+- Personal Opinions: The answer may also contain user's personal opinions, and the user may ask questions while answering, if he needs further guidance. Address the user's new issues on the questions and guide him through too.
+- Visual Separators: Always insert a clear line separator (e.g., `--------------------------------------------------------------------------------`) between each question block (including its answers, feedback, and follow-up sub-questions) to prevent them from mixing up and to maintain high readability.

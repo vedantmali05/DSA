@@ -3,30 +3,29 @@ package arrays;
 class Main {
 
     public static int[] rotateKLeft(int[] arr, int k) {
-
-        if (arr == null || arr.length < k) {
-            System.err.println("Invalid array input");
-            return new int[0];
+        if (arr == null || arr.length <= 1) {
+            return arr;
         }
 
-        if (k > arr.length || k < 0) {
-            System.err.println("Invalid shift size");
-            return new int[0];
+        k = k % arr.length;
+        if (k < 0) {
+            k += arr.length;
         }
-
-        if (k % arr.length == 0)
+        if (k == 0)
             return arr;
 
-        int[] slice = new int[k];
+        int[] temp = new int[k];
+        for (int i = 0; i < k; i++) {
+            temp[i] = arr[i];
+        }
 
-        for (int i = 0; i < k; i++)
-            slice[i] = arr[i];
+        for (int i = k; i < arr.length; i++) {
+            arr[i - k] = arr[i];
+        }
 
-        for (int i = 0; i < arr.length - k; i++)
-            arr[i] = arr[i + k];
-
-        for (int i = k + 1; i < arr.length; i++)
-            arr[i] = slice[i - k - 1];
+        for (int i = 0; i < k; i++) {
+            arr[arr.length - k + i] = temp[i];
+        }
 
         // Time: O(N) linear scan (copies and shifts N elements)
         // Space: O(k) auxiliary space (allocates new array slice of size K)
@@ -34,30 +33,29 @@ class Main {
     }
 
     public static int[] rotateKRight(int[] arr, int k) {
-
-        if (arr == null || arr.length < k) {
-            System.err.println("Invalid array input");
-            return new int[0];
+        if (arr == null || arr.length <= 1) {
+            return arr;
         }
 
-        if (k > arr.length || k < 0) {
-            System.err.println("Invalid shift size");
-            return new int[0];
+        k = k % arr.length;
+        if (k < 0) {
+            k += arr.length;
         }
-
-        if (k % arr.length == 0)
+        if (k == 0)
             return arr;
 
-        int[] slice = new int[k];
+        int[] temp = new int[k];
+        for (int i = 0; i < k; i++) {
+            temp[i] = arr[arr.length - k + i];
+        }
 
-        for (int i = arr.length - k; i < arr.length; i++)
-            slice[i - k - 1] = arr[i];
+        for (int i = arr.length - k - 1; i >= 0; i--) {
+            arr[i + k] = arr[i];
+        }
 
-        for (int i = arr.length - 1; i >= k; i--)
-            arr[i] = arr[i - k];
-
-        for (int i = 0; i < k; i++)
-            arr[i] = slice[i];
+        for (int i = 0; i < k; i++) {
+            arr[i] = temp[i];
+        }
 
         // Time: O(N) linear scan (copies and shifts N elements)
         // Space: O(k) auxiliary space (allocates new array slice of size K)
@@ -111,12 +109,12 @@ class Main {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 10, 20, 30 };
+        int[] arr = { 10, 20, 30, 40, 50, 60, 70 };
         int k = 3;
 
         ArrayUtils.arrayTraversal(arr, "Original Array: ");
-        rotateKLeft(arr, k);
-        ArrayUtils.arrayTraversal(arr, "Left Rotated Array (K=" + k + "): ");
+        int[] res1 = rotateKLeft(arr, k);
+        ArrayUtils.arrayTraversal(res1, "Left Rotated Array (K=" + k + "): ");
 
         int[] arr2 = { 10, 20, 30, 40, 50, 60, 70 };
         ArrayUtils.arrayTraversal(arr2, "Original Array 2: ");
@@ -140,7 +138,10 @@ class Main {
  * - Real-world Analogy: Reversing book sections on a shelf. To rotate a shelf
  * of books left by K positions, you can reverse the first K books, reverse
  * the remaining N-K books, and then reverse the entire shelf.
- * - Technical Analogy: Column cyclic scrolling in horizontal UI grid views or spreadsheet components. When a user scrolls past K columns, the renderer rotates the column data indices by K positions using block reversal to keep memory moves minimal and in-place.
+ * - Technical Analogy: Column cyclic scrolling in horizontal UI grid views or
+ * spreadsheet components. When a user scrolls past K columns, the renderer
+ * rotates the column data indices by K positions using block reversal to keep
+ * memory moves minimal and in-place.
  * - Limitations & Tradeoffs: The block reversal algorithm is highly optimized
  * because it performs exactly 3 array reversal passes (O(N) operations total)
  * and requires only O(1) auxiliary space. Compared to shifting elements

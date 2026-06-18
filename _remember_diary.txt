@@ -2,7 +2,7 @@
                            DSA STUDY REMEMBER DIARY
 ================================================================================
 
-1. Safe Middle Index Calculation
+1. Safe Middle Index Calculation -> @02_02_search_binary_iterative.java
 --------------------------------------------------------------------------------
 Always calculate the middle index of a range [left, right] using:
 
@@ -33,7 +33,7 @@ or sub-segments:
 - Ternary Search (dividing the space into three equal segments)
 - Divide and Conquer algorithms generally
 
-2. Rotated Sorted Array Bounds Check
+2. Rotated Sorted Array Bounds Check -> @02_05_search_rotated_sorted.java
 --------------------------------------------------------------------------------
 When performing binary search on a rotated sorted array:
 - First, check which half is sorted:
@@ -43,3 +43,30 @@ When performing binary search on a rotated sorted array:
   * If the left half is sorted, check `target >= arr[left] && target < arr[mid]`.
   * If the right half is sorted, check `target > arr[mid] && target <= arr[right]`.
 - CRITICAL TRAP: Always make the outer boundaries INCLUSIVE (`>= arr[left]` and `<= arr[right]`) and the inner boundaries EXCLUSIVE (`< arr[mid]` and `> arr[mid]`). If you use exclusive checks for the outer boundaries (e.g. `< arr[right]`), the search will fail when the target is located exactly at the boundary indices.
+
+3. Insertion Sort Stability Rule -> @03_03_sort_insertion.java
+--------------------------------------------------------------------------------
+To maintain the stability of Insertion Sort:
+- The comparison condition in the shifting loop must be strict: `arr[j] > key`.
+- If you change the condition to non-strict: `arr[j] >= key`, the algorithm will swap/shift equal elements as well, which unnecessarily alters their original relative order and makes the sort unstable.
+
+4. Assign & Increment Trick -> @03_04_sort_merge_auxiliary.java
+--------------------------------------------------------------------------------
+If a pointer is being incremented immediately after getting processed, the following shorthand can be used:
+    process(arr[i]);
+    i++;
+- Same task can be done using
+    process(arr[i++]);
+
+5. Multiple pointers in one loop trick -> @03_04_sort_merge_auxiliary.java
+--------------------------------------------------------------------------------
+When 2 pointers are being maintained for a same condition loop, and they increment in the same step, the following shorthand can be used:
+  int j = x;
+  for (int i = 0x; i < merged.length; i++) { 
+    // body
+    j++;
+  }
+- Same task can be done using
+  for (int i = 0, j = x; i < merged.length; i++, j++) {
+    // body
+  }

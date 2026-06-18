@@ -22,12 +22,13 @@ Arrays Coding Checklist
 [ ] 3. Sorting & Merging
     [x] Bubble sort (manual pass-by-pass swaps) -> 03_01_sort_bubble.java
     [x] Selection sort (manual minimum tracking and swap) -> 03_02_sort_selection.java
-    [ ] Insertion sort (shifting elements to insert in sorted prefix) -> 03_03_sort_insertion.java
-    [ ] Merge two sorted arrays (using auxiliary array) -> 03_04_sort_merge_auxiliary.java
+    [x] Insertion sort (shifting elements to insert in sorted prefix) -> 03_03_sort_insertion.java
+    [x] Merge two sorted arrays (using auxiliary array) -> 03_04_sort_merge_auxiliary.java
     [ ] Merge two sorted arrays (in-place with shift/insertion) -> 03_05_sort_merge_inplace.java
-    [ ] Lomuto partition scheme (single pointer progression) -> 03_06_partition_lomuto.java
-    [ ] Hoare partition scheme (two-pointer meeting partition) -> 03_07_partition_hoare.java
-    [ ] Dutch National Flag partition (3-way swap partitioning) -> 03_08_partition_dutch_flag.java
+    [ ] Quick sort (divide and conquer sorting using partition) -> 03_06_sort_quick.java
+    [ ] Lomuto partition scheme (single pointer progression) -> 03_07_partition_lomuto.java
+    [ ] Hoare partition scheme (two-pointer meeting partition) -> 03_08_partition_hoare.java
+    [ ] Dutch National Flag partition (3-way swap partitioning) -> 03_09_partition_dutch_flag.java
 
 [ ] 4. Pointer & Sliding Window Patterns
     [ ] Frequency count array (using element value as index) -> 04_01_pattern_frequency_count.java
@@ -56,3 +57,4 @@ Arrays Coding Checklist
     [ ] Utility operations: Arrays.copyOf, Arrays.sort, Arrays.binarySearch, Arrays.fill -> 07_02_lib_arrays_methods.java
     [ ] ArrayList Internals: Building a dynamic arraylist wrapping native operations -> 07_03_lib_arraylist_internals.java
 
+[ ] 8. Try to solve all the problems via recursion
