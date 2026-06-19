@@ -24,14 +24,14 @@ Arrays Coding Checklist
     [x] Selection sort (manual minimum tracking and swap) -> 03_02_sort_selection.java
     [x] Insertion sort (shifting elements to insert in sorted prefix) -> 03_03_sort_insertion.java
     [x] Merge two sorted arrays (using auxiliary array) -> 03_04_sort_merge_auxiliary.java
-    [ ] Merge two sorted arrays (in-place with shift/insertion) -> 03_05_sort_merge_inplace.java
-    [ ] Quick sort (divide and conquer sorting using partition) -> 03_06_sort_quick.java
-    [ ] Lomuto partition scheme (single pointer progression) -> 03_07_partition_lomuto.java
-    [ ] Hoare partition scheme (two-pointer meeting partition) -> 03_08_partition_hoare.java
-    [ ] Dutch National Flag partition (3-way swap partitioning) -> 03_09_partition_dutch_flag.java
+    [x] Merge two sorted arrays (in-place with shift/insertion) -> 03_05_sort_merge_inplace.java
+    [x] Quick sort (divide and conquer sorting using partition) -> 03_06_sort_quick.java
+    [x] Lomuto partition scheme (single pointer progression) -> 03_07_partition_lomuto.java
+    [x] Hoare partition scheme (two-pointer meeting partition) -> 03_08_partition_hoare.java
+    [x] Dutch National Flag partition (3-way swap partitioning) -> 03_09_partition_dutch_flag.java
 
 [ ] 4. Pointer & Sliding Window Patterns
-    [ ] Frequency count array (using element value as index) -> 04_01_pattern_frequency_count.java
+    [x] Frequency count array (using element value as index) -> 04_01_pattern_frequency_count.java
     [ ] Prefix sum array (constant-time range sum queries) -> 04_02_pattern_prefix_sum.java
     [ ] Suffix sum array -> 04_03_pattern_suffix_sum.java
     [ ] Two pointers: Target sum pair search in sorted array -> 04_04_pattern_two_pointers_sum.java
