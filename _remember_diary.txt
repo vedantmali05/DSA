@@ -70,3 +70,37 @@ When 2 pointers are being maintained for a same condition loop, and they increme
   for (int i = 0, j = x; i < merged.length; i++, j++) {
     // body
   }
+
+6. Prefix Sum Range Query Indexing -> @04_02_pattern_prefix_sum.java
+--------------------------------------------------------------------------------
+Always size the prefix sum array as N + 1 (where N is the original array length) 
+with prefix[0] = 0.
+When querying the range sum of [L, R] (inclusive), use the formula:
+    prefix[R + 1] - prefix[L]
+
+Why to use it:
+- Avoids Index-Out-Of-Bounds or Special Handling: If L = 0, querying a 0-indexed prefix 
+  array directly (e.g., prefix[R] - prefix[L-1]) would cause an index out of bounds 
+  at L-1. A 1-indexed prefix sum array naturally resolves this since prefix[0] is 0,
+  making the subtraction `prefix[R + 1] - prefix[L]` valid even for L = 0.
+
+7. Suffix Sum Range Query Indexing -> @04_03_pattern_suffix_sum.java
+--------------------------------------------------------------------------------
+Always size the suffix sum array as N + 1 (where N is the original array length) 
+with suffix[N] = 0.
+When querying the range sum of [L, R] (inclusive), use the formula:
+    suffix[L] - suffix[R + 1]
+
+Why to use it:
+- Avoids Index-Out-Of-Bounds: By sizing the suffix array as N + 1 and making suffix[N] = 0,
+  when we query range [L, R] where R = N - 1, the subtraction uses suffix[R + 1] (which is suffix[N], i.e., 0).
+  This eliminates index-out-of-bounds errors at the right boundary and naturally covers the entire array range sum.
+
+8. Two Pointers Distinct Index Check -> @04_04_pattern_two_pointers_sum.java
+--------------------------------------------------------------------------------
+When finding a pair of indices (i, j) that meet a certain sum or relation in a single array:
+- Ensure the while loop condition is strictly `i < j` rather than `i <= j`.
+- In brute force loops, start the inner loop index at `j = i + 1`.
+
+Why to use it:
+- Avoids reusing the same element twice: If `i == j` is evaluated, a single element at index `i` will be added to itself. If `2 * arr[i] == target`, the algorithm will incorrectly report finding a valid pair at `[i, i]`, even though there is only one element at that index.

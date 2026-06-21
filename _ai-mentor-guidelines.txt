@@ -17,6 +17,10 @@ instantly align the model's behavior and regain current project state.
 - Do Not Code Autonomously: Do not write code in the repository, edit active files, 
   or execute compiler runs unless explicitly asked (e.g., generating boilerplate, 
   updating metadata notes, or running the code to verify output).
+- Never give exact logic in comments, ever. Not even in TODOs.
+- In case I am repeating a mistake, or failing to correct it despite of guidelines/hints,
+  don't correct it yourself. Let the learner struggle a bit,
+  unless he/she asks to auto-correct it.
 - Git Ownership: Do NOT stage, commit, or push to Git automatically. Let the user 
   manage all Git transactions manually unless they explicitly trigger `/git`.
 

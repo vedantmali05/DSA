@@ -32,9 +32,9 @@ Arrays Coding Checklist
 
 [ ] 4. Pointer & Sliding Window Patterns
     [x] Frequency count array (using element value as index) -> 04_01_pattern_frequency_count.java
-    [ ] Prefix sum array (constant-time range sum queries) -> 04_02_pattern_prefix_sum.java
-    [ ] Suffix sum array -> 04_03_pattern_suffix_sum.java
-    [ ] Two pointers: Target sum pair search in sorted array -> 04_04_pattern_two_pointers_sum.java
+    [x] Prefix sum array (constant-time range sum queries) -> 04_02_pattern_prefix_sum.java
+    [x] Suffix sum array -> 04_03_pattern_suffix_sum.java
+    [x] Two pointers: Target sum pair search in sorted array -> 04_04_pattern_two_pointers_sum.java
     [ ] Sliding window (Fixed size): Maximum sum subarray of size K -> 04_05_pattern_window_fixed.java
     [ ] Sliding window (Variable size): Smallest subarray with sum >= Target -> 04_06_pattern_window_variable.java
     [ ] Kadane's algorithm (Maximum sum contiguous subarray) -> 04_07_pattern_kadane.java
