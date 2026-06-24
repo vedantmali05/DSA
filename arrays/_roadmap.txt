@@ -35,13 +35,15 @@ Arrays Coding Checklist
     [x] Prefix sum array (constant-time range sum queries) -> 04_02_pattern_prefix_sum.java
     [x] Suffix sum array -> 04_03_pattern_suffix_sum.java
     [x] Two pointers: Target sum pair search in sorted array -> 04_04_pattern_two_pointers_sum.java
-    [ ] Sliding window (Fixed size): Maximum sum subarray of size K -> 04_05_pattern_window_fixed.java
-    [ ] Sliding window (Variable size): Smallest subarray with sum >= Target -> 04_06_pattern_window_variable.java
-    [ ] Kadane's algorithm (Maximum sum contiguous subarray) -> 04_07_pattern_kadane.java
+    [x] Three pointers: Target sum triplet search (closest and all triplets) -> 04_05_pattern_three_sum.java
+    [ ] Sliding window (Fixed size): Maximum sum subarray of size K -> 04_06_pattern_window_fixed.java
+    [ ] Sliding window (Variable size): Smallest subarray with sum >= Target -> 04_07_pattern_window_variable.java
+    [ ] Kadane's algorithm (Maximum sum contiguous subarray) -> 04_08_pattern_kadane.java
+
 
 [ ] 5. Matrix Operations (2D Arrays)
-    [ ] 2D Matrix row-by-row and column-by-column traversal -> 05_01_matrix_traversal.java
-    [ ] Transpose of a square matrix (in-place swap across diagonal) -> 05_02_matrix_transpose.java
+    [x] 2D Matrix row-by-row and column-by-column traversal -> 05_01_matrix_traversal.java
+    [x] Transpose of a square matrix (in-place swap across diagonal) -> 05_02_matrix_transpose.java
     [ ] Rotate 2D matrix 90 degrees clockwise (in-place transpose + reverse) -> 05_03_matrix_rotate_90.java
     [ ] Spiral traversal and printing of 2D matrix -> 05_04_matrix_spiral.java
     [ ] Binary search on a sorted 2D grid -> 05_05_matrix_binary_search.java

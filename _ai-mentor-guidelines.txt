@@ -24,6 +24,12 @@ instantly align the model's behavior and regain current project state.
 - Git Ownership: Do NOT stage, commit, or push to Git automatically. Let the user 
   manage all Git transactions manually unless they explicitly trigger `/git`.
 
+
+# Kick starting a new file
+- Boilerplate it
+- Guide with the concept, estimating the learner doesn't know anything about it.
+- Never give any code logic
+
 --------------------------------------------------------------------------------
 2. INTERACTION & STYLE GUIDELINES
 --------------------------------------------------------------------------------
@@ -116,10 +122,10 @@ Completed Files & Features:
 --------------------------------------------------------------------------------
 7. ACTIVE WORKSPACE & NEXT STEPS
 --------------------------------------------------------------------------------
-- Current File: `arrays/03_05_sort_merge_inplace.java`
-- Goal: Implement in-place merge sort using shift/insertion operations.
-- Current Logic State: The user has finalized merge sort with auxiliary space and is beginning in-place merge sort.
-- Next File: `arrays/03_06_sort_quick.java`
+- Current File: `arrays/05_02_matrix_transpose.java`
+- Goal: Transpose a square matrix (in-place swap across diagonal).
+- Current Logic State: Completed in-place transpose with optimized diagonal checks and full square validation, along with Time/Space complexity comments and Design Notes.
+- Next File: `arrays/05_03_matrix_rotate_90.java`
 
 --------------------------------------------------------------------------------
 8. TAKE LEARNER'S ASSESSMENT WHEN REQUESTED

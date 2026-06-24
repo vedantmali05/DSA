@@ -39,4 +39,30 @@ public class ArrayUtils {
         }
         System.err.println();
     }
+
+    public static void printMatrix(int[][] matrix) {
+        printMatrix(matrix, "");
+    }
+
+    public static void printMatrix(int[][] matrix, String customString) {
+        if (matrix == null) {
+            System.out.println("null");
+            return;
+        }
+
+        if (customString != null && !customString.isEmpty()) {
+            System.out.println(customString);
+        }
+
+        for (int[] row : matrix) {
+            if (row == null) {
+                System.out.println("null");
+                continue;
+            }
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
 }

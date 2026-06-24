@@ -104,3 +104,29 @@ When finding a pair of indices (i, j) that meet a certain sum or relation in a s
 
 Why to use it:
 - Avoids reusing the same element twice: If `i == j` is evaluated, a single element at index `i` will be added to itself. If `2 * arr[i] == target`, the algorithm will incorrectly report finding a valid pair at `[i, i]`, even though there is only one element at that index.
+
+9. Three Sum Pointer and Duplicate Checks -> @04_05_pattern_three_sum.java
+--------------------------------------------------------------------------------
+When implementing Three Sum with Two Pointers:
+- Place the outer duplicate check (`i > 0 && arr[i] == arr[i - 1]`) at the very beginning of the outer loop, and remember to increment `i` before continuing.
+- Place the inner duplicate checks (`while (j < k && arr[j] == arr[j - 1]) j++;` and `while (j < k && arr[k] == arr[k + 1]) k--;`) immediately after finding a match and moving the pointers (`j++` and `k--`).
+- For Closest Target matching, initialize the candidate sum with the first three elements (`arr[0] + arr[1] + arr[2]`) instead of `0` to avoid bias, and compare distance using `Math.abs(sum - target) < Math.abs(closestSum - target)`.
+
+Why to use it:
+- Avoids Infinite Loops and Index-Out-Of-Bounds: Placing the fixed-pointer duplicate check inside the inner loop causes infinite loops if the pointers are not updated. Also, check `i > 0` before checking `arr[i - 1]` to avoid index `-1`.
+- Avoids Duplicate Triplets: Sorting groups duplicates consecutively, so checking adjacent elements allows us to skip duplicates efficiently.
+
+10. CPU Cache Locality and Ragged Safety in 2D Matrix Traversal -> @05_01_matrix_traversal.java
+--------------------------------------------------------------------------------
+When working with 2D matrices (arrays of arrays):
+- Row-by-row traversal is highly cache-friendly. Java matrices are stored in row-major format (an array of row pointers). Accessing elements row-by-row accesses contiguous memory addresses, leveraging CPU cache prefetching.
+- Column-by-column traversal constantly hops between different row arrays in memory, causing frequent cache misses and slower execution.
+- When traversing column-by-column, never assume the matrix is perfectly square or that `matrix[0]` is non-null. Always pre-calculate the maximum column length (`maxCols`) across all rows.
+- During column traversal, always guard against null rows (`matrix[row] == null`) and out-of-bounds indices in ragged matrices (`col >= matrix[row].length`) before accessing `matrix[row][col]`.
+
+11. In-place Matrix Transpose Loop Bounds & Square Check -> @05_02_matrix_transpose.java
+--------------------------------------------------------------------------------
+When transposing a matrix in-place:
+- Only swap elements on one side of the diagonal (e.g., where `col < row`). If you swap every element (using standard nested loops where `col < matrix[row].length`), you will swap them twice, returning the matrix to its original state.
+- Skipping diagonal elements (`col == row`) by setting the inner loop condition to `col < row` instead of `col <= row` avoids N redundant self-swapping operations.
+- Always check that the matrix is square: verify that `matrix[row] != null` and `matrix[row].length == matrix.length` for every row to prevent `ArrayIndexOutOfBoundsException` during swaps.
