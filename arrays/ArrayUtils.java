@@ -65,4 +65,44 @@ public class ArrayUtils {
             System.out.println();
         }
     }
+
+    /**
+     * Validates whether the given matrix is a non-null, non-empty square matrix.
+     * 
+     * @param matrix the matrix to validate
+     * @return true if valid square matrix, false otherwise
+     */
+    public static boolean isValidSquareMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            System.out.println("Invalid Matrix Input");
+            return false;
+        }
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i] == null || matrix[i].length != matrix.length) {
+                System.out.println("Invalid Matrix Input");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Validates whether the given matrix is a non-null, non-empty rectangular matrix.
+     * 
+     * @param matrix the matrix to validate
+     * @return true if valid matrix, false otherwise
+     */
+    public static boolean isValidMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            System.out.println("Invalid Matrix Input");
+            return false;
+        }
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i] == null || matrix[i].length == 0) {
+                System.out.println("Invalid Matrix Input");
+                return false;
+            }
+        }
+        return true;
+    }
 }

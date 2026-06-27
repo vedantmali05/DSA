@@ -15,16 +15,8 @@ class Main {
      * Transposes a square matrix in-place.
      */
     public static void transpose(int[][] matrix) {
-        if (matrix == null || matrix.length == 0) {
-            System.out.println("Invalid Matrix Input");
+        if (!ArrayUtils.isValidSquareMatrix(matrix)) {
             return;
-        }
-
-        for (int row = 0; row < matrix.length; row++) {
-            if (matrix[row] == null || matrix[row].length != matrix.length) {
-                System.out.println("Invalid Matrix Input");
-                return;
-            }
         }
 
         for (int row = 0; row < matrix.length; row++) {

@@ -1,21 +1,21 @@
 # Java DSA Workspace
 
-A systematic computer science laboratory and notebook for deep-diving into Data Structures and Algorithms in Java from first principles.
+Thought of practicing DSA topic-by-topic instead of solving random Leetcode problems directly without any base. Using AI to create the roadmaps and getting introduced by the topics (solving them without AI though 🦉).
 
-## Workspace Structure
-* `arrays/` - Linear structures, searching, sorting, and array manipulation algorithms (contains `_roadmap.txt` for checking off implementations).
-* `_checklist-for-me.txt` - Universal evaluation criteria applied to every algorithm studied.
-* `_concepts-list.txt` - Structured study roadmap and syllabus of core CS concepts.
-* `_rules-for-ai.txt` - Strict guidelines governing AI pairing behavior.
+## Structure
 
-## Conceptual Evaluation Framework
-Each manually implemented data structure or algorithm is studied by evaluating:
-1. **Core Problem Solved**
-2. **Brute Force Baseline**
-3. **Core Insight & Optimization**
-4. **Complexity Boundaries** (Best/Average/Worst Time & Space)
-5. **Why It Works** (Logical/Mathematical proof of correctness)
-6. **Edge Cases** (Empty, duplicates, overflows, etc.)
-7. **Iterative vs. Recursive Implementations**
-8. **Real-world Intuition**
-9. **Limitations & Design Trade-offs**
+* `arrays/`: Core linear patterns, search, sort, and matrix manipulations.
+* `_roadmap.txt`: Checklist tracing learning progress (relative to each folder, like `arrays/`).
+* `_concepts-list.txt`: Syllabus mapping out the DSA topics.
+* `_remember_diary.txt`: Gotchas, rules of thumb, boundary-condition guides, or just things to remember.
+* `_checklist-for-me.txt`: So that I don't forget important things.
+
+## Study Process
+
+Every topic goes through the implementation checklist (as per `_checklist-for-me.txt`):
+1. Understand the concept.
+2. Find a brute-force solution
+3. Find an optimize or an alternative solution.
+4. Implement boundary or edge cases checks to all the solutions.
+5. Study & note down time & space complexities.
+6. **Theory:** Write real-life analogies, technical analogies, tradeoffs, etc. for the concept & solution.

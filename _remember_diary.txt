@@ -130,3 +130,15 @@ When transposing a matrix in-place:
 - Only swap elements on one side of the diagonal (e.g., where `col < row`). If you swap every element (using standard nested loops where `col < matrix[row].length`), you will swap them twice, returning the matrix to its original state.
 - Skipping diagonal elements (`col == row`) by setting the inner loop condition to `col < row` instead of `col <= row` avoids N redundant self-swapping operations.
 - Always check that the matrix is square: verify that `matrix[row] != null` and `matrix[row].length == matrix.length` for every row to prevent `ArrayIndexOutOfBoundsException` during swaps.
+
+12. Finding Maximum Initialization Rule -> @04_06_pattern_window_fixed.java
+--------------------------------------------------------------------------------
+When finding the maximum value (or maximum sum) of subarray/elements:
+- Always initialize the tracker (`maxSum` or `maxVal`) with the first candidate element's 
+  value (or the first window's sum) instead of a hardcoded default like `0` or `Integer.MIN_VALUE`.
+  
+Why to use it:
+- Handles Negative Numbers Correctly: If all candidate values are negative (e.g., { -5, -3, -8 }), 
+  initializing to `0` will result in returning `0` as the maximum, which is incorrect.
+- Avoids Range Overlooks: Initializing to the first valid value ensures that if the first element 
+  is the actual maximum, it is correctly retained, even if later loops start processing from subsequent indices.
